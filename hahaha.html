@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Mai ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(180deg, #ffd6e8, #fff);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+}
+
+h1 {
+  color: #ff4f91;
+  margin-bottom: 20px;
+}
+
+p {
+  color: #444;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  max-width: 600px;
+}
+
+button {
+  margin-top: 25px;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 30px;
+  background: #ff4f91;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(255,79,145,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(255,79,145,0.6);
+}
+
+/* Floating hearts & flowers */
+.floating {
+  position: absolute;
+  bottom: -50px;
+  font-size: 20px;
+  animation: floatUp linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<div class="screen" id="screen1">
+  <h1>💌 For You, My Love</h1>
+  <p>
+    This is something I made just for you…<br>
+    A little surprise filled with love, warmth, and my heart.
+  </p>
+  <button onclick="openLetter()">Open 💖</button>
+</div>
+
+<!-- SCREEN 2 -->
+<div class="screen hidden" id="screen2">
+  <h1>My Dearest Mai, Mama 🌸</h1>
+  <p>
+    My sweet mai, mama…<br><br>
+
+    Three months with you feels like a beautiful dream I never want to wake up from.
+    Every day with you adds a new color to my world, a new reason to smile, and a new
+    reminder of how lucky I am to have you.<br><br>
+
+    You are my comfort, my happiness, my safe place. The way you care, the way you love,
+    the way you exist so effortlessly… it all means more to me than I could ever put into words.
+    Still, I try — because you deserve to know just how deeply you are loved.<br><br>
+
+    When I talk to you, the world slows down. When I think about you, my heart feels full.
+    When I imagine the future, you’re always there — right beside me, holding my hand.
+    You make even the smallest moments feel special, and even the hardest days feel easier
+    just by being you.<br><br>
+
+    Mai, mama… thank you for choosing me, for trusting me, for loving me in your own beautiful way.
+    I promise to cherish you, to stand by you, to laugh with you, and to grow with you.
+    I don’t want perfection — I want *us*.<br><br>
+
+    This is only the beginning of our story, and I’m so excited to write every chapter with you.
+    I love you more than words, more than code, more than anything I could ever create here.
+  </p>
+
+  <button onclick="goFinal()">One Last Thing 💞</button>
+</div>
+
+<!-- FINAL SCREEN -->
+<div class="screen hidden" id="screen3">
+  <h1>Forever & Always ❤️</h1>
+  <p>
+    my sweet mai i choose u in the thoughest of times and on the easiest one's also , there is nothing that can stop me from loving u , and i cant wait for the little adventures life has to offer for us both , im glad i get to be by ur side , and im glad i get to love u , ur my forever endlessly and truly
+  </p>
+</div>
+
+<script>
+function openLetter() {
+  document.getElementById('screen1').classList.add('hidden');
+  document.getElementById('screen2').classList.remove('hidden');
+}
+
+function goFinal() {
+  document.getElementById('screen2').classList.add('hidden');
+  document.getElementById('screen3').classList.remove('hidden');
+}
+
+/* Floating hearts & flowers */
+const symbols = ['❤️','🌸','💖','🌷','💕'];
+
+function createFloating() {
+  const span = document.createElement('span');
+  span.className = 'floating';
+  span.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+  span.style.left = Math.random() * 100 + 'vw';
+  span.style.animationDuration = 6 + Math.random() * 6 + 's';
+  span.style.fontSize = 18 + Math.random() * 20 + 'px';
+  document.body.appendChild(span);
+
+  setTimeout(() => span.remove(), 12000);
+}
+
+setInterval(createFloating, 500);
+</script>
+
+</body>
+</html>
